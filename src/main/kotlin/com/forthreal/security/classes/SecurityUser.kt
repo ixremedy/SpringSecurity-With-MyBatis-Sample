@@ -4,12 +4,12 @@ import com.forthreal.domain.User
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
-class SecurityUser(id: Long?, username: String?, password: String?): User(id,username,password), UserDetails {
+class SecurityUser(id: Long?, username: String, password: String?): User(id,username,password), UserDetails {
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         TODO("Not yet implemented")
     }
 
-    constructor(user: User): this(id = user.id, username = user.username, password = user.password)
+    constructor(user: User): this(id = user.id, username = user.username!!, password = user.password)
 
     override fun getPassword() = super.password
     override fun getUsername() = super.username

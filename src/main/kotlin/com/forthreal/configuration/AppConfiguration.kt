@@ -38,12 +38,12 @@ open class AppConfiguration {
     @Bean
     @DependsOn("userDetailsService")
     open fun getSecurityChain(httpSecurity: HttpSecurity, userDetailsService: UserDetailsService): SecurityFilterChain
-            = httpSecurity.authorizeHttpRequests { authReq ->
-        authReq.antMatchers("/public/**").permitAll()
-            .anyRequest().authenticated()
-        }.formLogin { formLogin ->
-            formLogin.loginPage("/login").permitAll()
-        }.rememberMe{ remember ->
-            remember.userDetailsService(userDetailsService)
+            = httpSecurity.csrf().disable()
+        .userDetailsService(userDetailsService)
+        .authorizeHttpRequests {
+            it.antMatchers("/public/**").permitAll()
+                .anyRequest().authenticated()
+        }.formLogin { it.loginPage("/login").permitAll()
+        }.rememberMe{ it.userDetailsService(userDetailsService)
         }.build()
 }
