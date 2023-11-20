@@ -18,6 +18,7 @@ dependencies {
     implementation("org.springframework.security:spring-security-crypto")
     implementation("org.springframework.security:spring-security-config")
     implementation("org.springframework.security:spring-security-web")
+    testImplementation("org.springframework.security:spring-security-test")
     val springBootVersion = "2.7.17"
     implementation(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
