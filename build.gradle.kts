@@ -21,7 +21,6 @@ dependencies {
     testImplementation("org.springframework.security:spring-security-test")
     val springBootVersion = "2.7.17"
     implementation(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
@@ -40,6 +39,8 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:mysql")
+
+    testImplementation("com.squareup.okhttp3:okhttp:4.11.0")
 
     testImplementation(kotlin("test"))
     implementation(kotlin("stdlib"))
